@@ -1,0 +1,30 @@
+{
+  "name": "xrengine-test-project",
+  "version": "0.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "mocha --config .mocharc.js --spec 'tests/**/*.test.ts'",
+    "test-e2e": "mocha --config .mocharc.js --spec 'e2e/**/*.test.ts'",
+    "precommit": "no-master-commits -b master",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "format-scss": "stylelint \"**/*.scss\" --fix",
+    "format-staged": "lint-staged"
+  },
+  "devDependencies": {
+    "mocha": "10.0.0",
+    "trace-unhandled": "2.0.1"
+  },
+  "pre-commit": [
+    "format-staged"
+  ],
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write"
+    ],
+    "*.scss": [
+      "stylelint --fix"
+    ]
+  },
+  "license": "ISC"
+}
